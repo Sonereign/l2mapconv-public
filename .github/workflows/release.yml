@@ -103,7 +103,7 @@ jobs:
         with:
           submodules: recursive
       - name: Configure
-        run: cmake -S . -B build -G Ninja -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        run: cmake -S . -B build -G Ninja -D CMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D L2MAPCONV_LOAD_TEXTURES=ON
       - name: Build
         run: cmake --build build --parallel --config ${{env.BUILD_TYPE}}
       - uses: actions/upload-artifact@v4
